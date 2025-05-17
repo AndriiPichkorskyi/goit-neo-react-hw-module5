@@ -28,10 +28,12 @@ export default function MovieDetailsPage() {
 
     if (!movie) return;
 
+    const backgroundStyle = { backgroundImage: `radial-gradient(circle, rgba(143, 143, 143, 0.5) 0%, rgba(0, 0, 0, 1) 75%), url(https://image.tmdb.org/t/p/w500${movie.backdrop_path})` };
+
     return (
-        <div className={css.bg} style={{ backgroundImage: `radial-gradient(circle, rgba(143, 143, 143, 0.5) 0%, rgba(0, 0, 0, 1) 75%), url(https://image.tmdb.org/t/p/w500${movie.backdrop_path})` }}>
+        <div>
             <BackLink to={backLinkHref.current}>Back to movies</BackLink>
-            <div className={css.main}>
+            <div className={css.main} style={backgroundStyle}>
                 <div className={css["poster-wrapper"]}>
                     <Poster poster_path={movie.poster_path} title={movie.title} className={css.poster} />
                 </div>
